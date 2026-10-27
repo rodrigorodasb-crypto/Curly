@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contigo todo es tan hermoso y especial 💗</title>
+
+<style>
+:root {
+  --pink: #f7a9c4;
+  --deep: #b84f78;
+  --cream: #fff8fb;
+  --ink: #65364a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  background: radial-gradient(
+    circle at top,
+    #fff1f7,
+    #f8dce8 65%,
+    #f3c9dc
+  );
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+}
+
+.card {
+  width: min(100%, 620px);
+  text-align: center;
+  background: rgba(255,255,255,.88);
+  border: 1px solid #fff;
+  border-radius: 28px;
+  padding: 28px 22px;
+  box-shadow: 0 16px 45px #a94f7425;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: clamp(1.65rem, 5vw, 2.35rem);
+  margin: 4px 0 10px;
+  color: #a74770;
+}
+
+.subtitle {
+  font-size: 1.04rem;
+  line-height: 1.5;
+  margin: 0 auto 22px;
+  max-width: 460px;
+}
+
+.camera-button {
+  border: 0;
+  cursor: pointer;
+  background: linear-gradient(145deg, #ffdce9, #f3a8c5);
+  border-radius: 28px;
+  width: 142px;
+  height: 142px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 9px 22px #b84f7830;
+  transition: transform .2s, box-shadow .2s;
+  animation: pulse 2.2s infinite;
+}
+
+.camera-button:hover,
+.camera-button:focus-visible {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 13px 28px #b84f7840;
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.camera {
+  width: 75px;
+  height: 56px;
+  border-radius: 13px;
+  background: #fff8fb;
+  border: 5px solid #b84f78;
+  position: relative;
+  display: block;
+}
+
+.camera:before {
+  content: "";
+  position: absolute;
+  width: 29px;
+  height: 13px;
+  background: #b84f78;
+  border-radius: 7px 7px 0 0;
+  top: -16px;
+  left: 17px;
+}
+
+.lens {
+  position: absolute;
+  width: 29px;
+  height: 29px;
+  border: 5px solid #b84f78;
+  border-radius: 50%;
+  left: 18px;
+  top: 8px;
+  background: #f7bfd4;
+}
+
+.flash {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #b84f78;
+  right: 7px;
+  top: 7px;
+}
+
+.hint {
+  font-size: .95rem;
+  margin: 17px 0 0;
+  color: #9a5470;
+}
+
+#memory {
+  display: none;
+  margin-top: 26px;
+  animation: appear .7s ease both;
+}
+
+#memory.show {
+  display: block;
+}
+
+.photo {
+  width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px #8d466222;
+  background: #fff;
+}
+
+.message {
+  text-align: left;
+  line-height: 1.85;
+  font-size: 1.04rem;
+  margin: 22px 0;
+  white-space: pre-line;
+}
+
+.heart {
+  color: #d95b8b;
+  font-size: 1.6rem;
+  margin: 12px 0;
+  animation: heartbeat 1.3s infinite;
+}
+
+.close-button {
+  border: 0;
+  border-radius: 25px;
+  padding: 12px 22px;
+  background: #b84f78;
+  color: white;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.close-button:hover {
+  background: #963b61;
+}
+
+.floating-heart {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  animation: floatUp 5s linear forwards;
+  z-index: 5;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% { opacity: .9; }
+  to {
+    transform: translateY(-110vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  body {
+    padding: 12px;
+  }
+
+  .card {
+    padding: 24px 17px;
+  }
+
+  .message {
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="card">
+
+  <h1>Contigo todo es tan hermoso y especial 💗</h1>
+
+  <p class="subtitle">
+    Un recuerdo de nosotros, dos corazones y un amor que llevo siempre conmigo. ♡
+  </p>
+
+  <button
+    class="camera-button"
+    id="cameraButton"
+    type="button"
+    aria-label="Abrir nuestro recuerdo"
+    aria-expanded="false"
+    aria-controls="memory"
+  >
+    <span class="camera" aria-hidden="true">
+      <span class="lens"></span>
+      <span class="flash"></span>
+    </span>
+  </button>
+
+  <p class="hint" id="hint">
+    📷 Toca la cámara para descubrir tu sorpresa, mi cielito.
+  </p>
+
+  <section id="memory" aria-live="polite">
+
+    <div class="heart">♡ 💗 ♡</div>
+
+    <img
+      class="photo"
+      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABMNDhEODBMRDxEVFBMXHTAfHRoaHToqLCMwRT1JR0Q9Q"
+      alt="Una fotografía de nuestros momentos juntos"
+    >
+
+    <p class="message">Un recuerdo de nuestros momentos más hermosos juntos, sé que no te podré ver, pero esta foto estará presente en mi corazón y en mis pensamientos, recordando que cuando vuelva, encontraré siempre a mi persona favorita y a la niña que me hace tan feliz, que me enamora y que me hace sentir el niño más valioso y único de este mundo.
+
+Que esta foto te acompañe siempre, que puedas recordar que este niño te adora con todo su corazón, que me hace suspirar, que me derrite de amor y que mis ojitos siempre te ven a ti y lo hermosa que eres y mi corazón late fuerte por ti.</p>
+
+    <div class="heart">Te adoro con todo mi corazón. 💗</div>
+
+    <button class="close-button" id="closeButton" type="button">
+      Volver a la cámara 📷
+    </button>
+
+  </section>
+
+</main>
+
+<script>
+const cameraButton = document.getElementById("cameraButton");
+const memory = document.getElementById("memory");
+const hint = document.getElementById("hint");
+const closeButton = document.getElementById("closeButton");
+
+function createHearts() {
+  const symbols = ["💗", "💕", "♡", "💖", "💞"];
+
+  for (let i = 0; i < 14; i++) {
+    const heart = document.createElement("span");
+
+    heart.className = "floating-heart";
+    heart.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (16 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+
+    document.body.appendChild(heart);
+
+    heart.addEventListener("animationend", () => {
+      heart.remove();
+    });
+  }
+}
+
+function openMemory() {
+  memory.classList.add("show");
+  cameraButton.setAttribute("aria-expanded", "true");
+  hint.textContent = "Nuestro recuerdo más hermoso. 💗";
+
+  createHearts();
+
+  memory.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+function closeMemory() {
+  memory.classList.remove("show");
+  cameraButton.setAttribute("aria-expanded", "false");
+  hint.textContent =
+    "📷 Toca la cámara para descubrir tu sorpresa, mi cielito.";
+
+  cameraButton.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+
+  cameraButton.focus();
+}
+
+cameraButton.addEventListener("click", openMemory);
+closeButton.addEventListener("click", closeMemory);
+</script>
+
+</body>
+</html>
